@@ -14,6 +14,7 @@ import 'react-folder-tree/dist/style.css';
 function Explorer(){
     
     //Future enhancement is to be able to read multiple files at a time
+    
     const [fileList, setfileList] = useState([]);
     const [soarNegoDir, setSoarNegoDir] = useState(
         {
@@ -28,6 +29,7 @@ function Explorer(){
         }
         ]
     })
+    const treObjHolder = []
     const [selFileName, setSelFileName] = useState('');
     const [fileIndex, setfileIndex] = useState([]);
     const [content, setContent] = useState('');
@@ -50,6 +52,7 @@ function Explorer(){
      //These variables are called in useEffect to synchronize re-rendering of file retrieved data       
     const dummyRerender1= selFileName
     const dummyRerender2= content
+    const dummytreObjHolder= treObjHolder
 
   });
     
@@ -69,7 +72,7 @@ function Explorer(){
         
 
         setSelFileName(file.name)
-         
+       
         const fileData = {
             fileId: 1,
             fileName:file.name,
@@ -96,6 +99,21 @@ function Explorer(){
                     
 
                 })
+                // treObjHolder.push(
+                //     {name: 'File Directory',
+                //     children: [
+                //         {
+                //             name: fileData.fileName,
+                //             attributes: {
+                //             department: 'Production',
+                //             }
+                        
+                //         }
+                //         ]}
+                // )
+               
+                console.log("Concat arrays",treObjHolder.concat(soarNegoDir))
+                console.log("This is it ", treObjHolder)
                 setTreeElemetLoaded(true)
                 .catch(function(error){
                 console.log(error)
