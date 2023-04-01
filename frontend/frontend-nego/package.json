@@ -20,6 +20,7 @@
     "formik": "^2.2.9",
     "jsondiffpatch": "^0.4.1",
     "jsondiffpatch-for-react": "^1.0.4",
+    "mammoth": "^1.5.1",
     "prosemirror-example-setup": "^1.2.1",
     "prosemirror-model": "^1.19.0",
     "prosemirror-schema-basic": "^1.2.1",
