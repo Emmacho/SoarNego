@@ -8,7 +8,7 @@
     "@ckeditor/ckeditor5-react": "^5.0.2",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@remirror/pm": "^2.0.3",
+    "@remirror/pm": "^2.0.4",
     "@remirror/react": "^2.0.25",
     "@remirror/react-editors": "^1.0.25",
     "@testing-library/jest-dom": "^5.16.5",

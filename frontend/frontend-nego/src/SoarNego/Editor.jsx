@@ -7,8 +7,7 @@ import {
 } from 'remirror/extensions';
 import {
     EditorComponent,ThemeProvider,useActive,Remirror,useRemirror,useCommands,useHelpers,useKeymap,Toolbar,ToggleItalicButton,ToggleBoldButton,
-    CommandButtonGroup,
-    CommandMenuItem,DecreaseFontSizeButton,DropdownButton,IncreaseFontSizeButton,HeadingLevelButtonGroup,UndoButton,RedoButton,
+    CommandButtonGroup,DecreaseFontSizeButton,DropdownButton,IncreaseFontSizeButton,HeadingLevelButtonGroup,UndoButton,RedoButton,
     TextAlignmentButtonGroup,
     ListButtonGroup,
 } from '@remirror/react';
@@ -89,8 +88,7 @@ const hooks = [
     },
     ()=>{
         const { getJSON } = useHelpers();
-        const {currentFile, fileItems } = useContext(FileContext);
-        const handleSaveAutomatically = useCallback(
+        const {currentFile, fileItems } = useContext(FileContext);const handleSaveAutomatically = useCallback(
         async ({ state }) => {
           const content = JSON.stringify(getJSON(state));
           console.log(`Save to backend: ${content}`);

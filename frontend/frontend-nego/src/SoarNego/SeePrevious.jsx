@@ -1,9 +1,29 @@
-import { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { EditorComponent, Remirror, useRemirror,setContent } from '@remirror/react';
 import { getCurrFile } from "./Editor"
 import JsonDiffReact from 'jsondiffpatch-for-react';
 import ShowDiffContext from './ShowDiffContext';
 import FileContext from "./providers/FileExporerContext";
 import axios from "axios";
+import {
+  BoldExtension, ItalicExtension, ImageExtension, DropCursorExtension, FontSizeExtension, HeadingExtension, LinkExtension, NodeFormattingExtension,
+  BulletListExtension, OrderedListExtension, TaskListExtension, TextHighlightExtension,
+} from 'remirror/extensions';
+
+const extensions = () => [
+  new BoldExtension(),
+  new ItalicExtension(),
+  new HeadingExtension(),
+  new ImageExtension({ enableResizing: true }),
+  new DropCursorExtension(),
+  new FontSizeExtension({ defaultSize: '16', unit: 'px' }),
+  new LinkExtension({ autoLink: true }),
+  new NodeFormattingExtension(),
+  new BulletListExtension(),
+  new OrderedListExtension(),
+  new TaskListExtension(),
+  new TextHighlightExtension(),
+];
 const compareJson = (left, right, setDelta) => {
   const jsondiffpatch = require('jsondiffpatch').create({
     objectHash: (obj) => obj._id || obj.id,
@@ -17,7 +37,7 @@ const compareJson = (left, right, setDelta) => {
   });
 
   const delta = jsondiffpatch.diff(left, right);
-
+  console.log(delta)
   setDelta(delta);
 };
 
@@ -31,7 +51,17 @@ export const SeePrevious = () => {
   const [delta, setDelta] = useState(null);
   const { showDiff } = useContext(ShowDiffContext);
   const [selectedListFile, setSelectedListFile] = useState(null);
-  
+  const [content,setContent]= useState([
+    {
+      type: 'paragraph',
+      content: [
+        {
+          type: 'text',
+          text: 'Load a file from the right panel',
+        },
+      ],
+    },
+  ])
 
   var left
   
@@ -61,6 +91,7 @@ export const SeePrevious = () => {
 
       compareJson(left, selectedListFile, setDelta);
     }
+    console.log(delta)
 
   }, [showDiff, delta, left, selectedFile]);
 
@@ -74,7 +105,26 @@ export const SeePrevious = () => {
     }
   };
 
+  
+  const { manager, state, onChange } = useRemirror({
+    extensions,
+    content:{
+      type: 'doc',
+      content: content
+    },
+    stringHandler: 'html',
+  });
 
+  useEffect(() => {
+    if (selectedFile && delta) {
+      // const deltaString = JSON.stringify(delta, null, 2);
+      
+      // const content = delta[0]
+      setContent(delta[0]);
+      
+
+    }
+  }, [delta]);
 
 
   return (
@@ -117,7 +167,13 @@ export const SeePrevious = () => {
                 }}
 
               />
+              
             )}
+            <div style={{ width: '100%', float: 'right' }}>
+              <Remirror manager={manager} autoFocus state={state} onChange={onChange}>
+                <EditorComponent />
+              </Remirror>
+            </div>
           </div>
         </>
       )}
