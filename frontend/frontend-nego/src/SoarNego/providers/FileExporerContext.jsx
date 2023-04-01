@@ -17,7 +17,15 @@ export function FileContextProvider({ children }) {
       content: [
         {
           type: 'paragraph',
+          "attrs": {
+            "nodeIndent": null,
+            "nodeTextAlignment": "left",
+            "nodeLineHeight": 2,
+            "style": "",
+            "level": 2
+        },
           content: [
+            
             {
               type: 'text',
               text: 'Load a file from the right panel',

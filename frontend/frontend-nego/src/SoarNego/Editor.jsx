@@ -29,6 +29,7 @@ import { FontSizeButtons } from './remirrorComponents/FontSizeButtons';
 import { LineHeightButtonDropdown } from './remirrorComponents/LineHeightButtonDropdown';
 // These lines import the `FileContext` and `useContext` hooks from the `react` library, as well as a custom extension called `ToggleListItemExtension`.
 import axios from 'axios';
+import { htmlToProsemirrorNode } from 'remirror';
 
 
 const extensions = () => [
@@ -130,12 +131,24 @@ const hooks = [
 
 
 export const getEditorObject = (text) => {
-    text = JSON.parse(text)
-    return {
-        type: text.type,
-        content: text.content
+    try {
+      const parsedText = JSON.parse(text);
+  
+      // Check if the parsed object has 'type' and 'content' properties
+      if (parsedText.hasOwnProperty('type') && parsedText.hasOwnProperty('content')) {
+        return {
+          type: parsedText.type,
+          content: parsedText.content,
+        };
+      }
+    } catch (error) {
+      // If it's not a JSON string, an error will be thrown, and we'll just return the original text as HTML
     }
-};
+  
+    return text;
+  };
+  
+
 
 
 // This defines a function called `getEditorObject` that takes a JSON string as input, parses it, and returns an object with a `type` and `content` property.
@@ -158,12 +171,15 @@ export const Editor = () => {
     const html = String.raw; // Just for better editor support
 
 
-
+    console.log(editorContent)
     const { manager, state, onChange } = useRemirror({
         extensions,
-        content: editorContent
+        content: editorContent,
+        stringHandler: 'html',
+        
     });
 
+    // const prosemirrorContent = htmlToProsemirrorNode(editorContent,manager);
 
 
 
