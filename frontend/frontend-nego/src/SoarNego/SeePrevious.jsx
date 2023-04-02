@@ -44,16 +44,25 @@ export const SeePrevious = () => {
     try {
       const response = await axios.get("http://localhost:8080/api/get/all-files");
       const files = response.data;
-      setFileList(Array.isArray(files) ? files : []);
+  
+      if (Array.isArray(files) && selectedFile) {
+        
+        console.log(selectedFile.currentFileId)
+        const filteredFiles = files.filter((file) => file.fileId !== selectedFile.currentFileId);
+        setFileList(filteredFiles);
+      } else {
+        setFileList(Array.isArray(files) ? files : []);
+      }
     } catch (error) {
       console.error("Error fetching files:", error);
     }
   }
+  
 
   useEffect(() => {
     fetchFileList();
     
-  }, []);
+  }, [selectedFile]);
 
   useEffect(() => {
 

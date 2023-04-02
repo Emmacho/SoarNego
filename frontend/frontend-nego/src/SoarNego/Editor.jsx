@@ -171,7 +171,7 @@ export const Editor = () => {
     const html = String.raw; // Just for better editor support
 
 
-    console.log(editorContent)
+    
     const { manager, state, onChange } = useRemirror({
         extensions,
         content: editorContent,
