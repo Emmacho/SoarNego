@@ -1,11 +1,19 @@
+//imports 
 import { createContext, useState, useCallback } from "react";
 import { getEditorObject } from "../Editor";
 import axios from "axios";
 import { useReducer } from 'react';
 
-const FileContext = createContext();
+const FileContext = createContext(); //The FileContext object is created using createContext(), and exported at the end of the code block.
 
-
+/**The FileContextProvider component is defined
+ * It takes in a single prop, children, which is standard in React for wrapping other components.
+ * Inside the FileContextProvider component, several state variables are defined using the useState hook:
+ * selectedFile: initially set to null
+ * currentFileId: initially set to null
+ * filesLoaded: initially set to false
+ * editorContent: initially set to an object representing content for an empty document in the editor component.
+ */
 export function FileContextProvider({ children }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [currentFileId, setCurrentFileId] = useState(null)
@@ -74,6 +82,8 @@ export function FileContextProvider({ children }) {
   
   const [fileItems, dispatch] = useReducer(fileItemsReducer, initialState);
 
+  /**The addToFileList function uses the useCallback() hook to memoize/copy the function only if fileItems.children changes.
+   *  If the same file already exists, it won't add a duplicate to file list. */
   const addToFileList = useCallback(
     (name, checked, isOpen, fileIndex, fileId) => {
       // Check if file with the same name and fileId already exists in state
@@ -116,6 +126,8 @@ export function FileContextProvider({ children }) {
     }
     
   }
+  /**The fetchAllFiles function also uses axios to get all files, which it adds to the file list if they don't already exist.
+   * Once the files are loaded, filesLoaded is set to true. */
   const fetchAllFiles = async () => {
     try {
       const response = await axios.get("http://localhost:8080/api/get/all-files");

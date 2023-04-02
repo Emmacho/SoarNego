@@ -1,36 +1,41 @@
 /* global mammoth */
 
-import React from "react";
-import { useContext, useState, useEffect } from "react";
-import axios from "axios";
-import FileContext from "./providers/FileExporerContext.jsx";
-import FolderTreeWrapper from "./FolderTreeWrapper";
 
-export function Explorer() {
+import React from "react";//Importing the react library, which is needed to create React components.
+import { useContext, useState, useEffect } from "react"; //Importing various hooks from the react library, which allow the component to use state and lifecycle methods.
+import axios from "axios"; // Importing the axios package, which is used to make HTTP requests.
+import FileContext from "./providers/FileExporerContext.jsx"; //Importing a custom context object from FileExporerContext.
+import FolderTreeWrapper from "./FolderTreeWrapper";//Importing another custom component from FolderTreeWrapper.
+
+export function Explorer() { //Defining a named function component called Explorer.
   const {
     fileItems,
     sendToEditorContentLoader,
     fetchAllFiles,
     filesLoaded,
     addToFileList,
-  } = useContext(FileContext);
+  } = useContext(FileContext); //Using the useContext hook to get values from the FileContext object.
 
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState(""); //Using the useState hook to create a state variable called content and its setter function setContent with initial value "" (an empty string).
 
-  let fileReader;
+  let fileReader; //Defining a variable called fileReader with no initial value.
 
   const handleClick = (event) => {
-    event.target.value = "";
+    event.target.value = "";  //Defining an arrow function called handleClick that receives an event object as an argument and sets the value of the event.target.value property to an empty string.
   };
 
   const handleFileRead = (e) => {
-    setContent(fileReader.result);
+    setContent(fileReader.result); //Defining an arrow function called handleFileRead that receives an object as an argument and sets the value of the content state variable to fileReader.result.
   };
 
-  const handleFileClick = (state, event) => {
-    sendToEditorContentLoader(state.nodeData.fileIndex);
+/**Defining an arrow function called handleFileClick that receives state and event objects as arguments, 
+ * and calls the sendToEditorContentLoader function with the fileIndex property of state.nodeData. */
+  const handleFileClick = (state, event) => { 
+    sendToEditorContentLoader(state.nodeData.fileIndex); 
   };
 
+  /**Defining an asynchronous arrow function called handleFileChosen that receives a file object as an argument. 
+   * This function converts a .docx file to HTML and then sends the resulting data to the server. */
   const handleFileChosen = async (file) => {
     const fileName = file.name;
     
@@ -72,8 +77,10 @@ export function Explorer() {
     if (!filesLoaded) {
       fetchAllFiles();
     }
-  }, [filesLoaded, fetchAllFiles]);
+  }, [filesLoaded, fetchAllFiles]);//Using the useEffect hook to fetch files when the page first loads, and every time filesLoaded or fetchAllFiles change.
 
+  /**Returning a fragment of JSX code that includes an input element
+   * for loading files and a FolderTreeWrapper component for displaying the file tree. */
   return (
     <>
       <div>

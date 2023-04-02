@@ -25,3 +25,7 @@ public class Application {
         };
     }
 }
+/*The "main" method initializes and starts the application by calling "SpringApplication.run()" with the class and command-line arguments as parameters.
+ * The method "addCorsMappings()" is overridden to add mappings for allowed origins and methods. The mapping is for all endpoints in the application since "/**" is used as the path. 
+ * Only requests originating from "http://localhost:4200" are allowed and the allowed HTTP methods are GET, POST, PUT, DELETE, and OPTIONS.
+ */

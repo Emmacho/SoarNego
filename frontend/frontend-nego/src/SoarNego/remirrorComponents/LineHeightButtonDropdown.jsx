@@ -21,4 +21,5 @@ export const LineHeightButtonDropdown = () => {
       </CommandButtonGroup>
     );
   };
-  
+
+  /*This class uses the dropdown in order to allow us to select if we would like our lines to be single or double spaced in terms of formatting. */

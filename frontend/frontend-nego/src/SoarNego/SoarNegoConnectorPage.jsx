@@ -43,10 +43,6 @@ function SoarNegoConnectorPage () {
                                                     }/> */}
                                                 
                                                     <Route path="/soarnego" element ={<AuthenticatedRoute child={<SoarNegoAppPage/>}/>} />
-                                                        
-                                        
-                                                    {/* <Route path="/soarnego" element={<SoarNegoAppPage/>} /> */}
-
                                                     <Route path="login" element={<LoginPage/>} />
                                                     <Route path="singIn" element={<SignInDetails/>} />
                                                     <Route path="logout" element={<LogoutComponent/>} />

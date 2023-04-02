@@ -30,4 +30,5 @@ export const FontSizeButtons = () => {
         </DropdownButton>
     );
 };
-// This defines a custom component called `FontSizeButtons` that renders a dropdown menu of font sizes. It uses the `useCommands` and `useActive` hooks from `remirror` to set and retrieve the font size.
+// This defines a custom component called `FontSizeButtons` that renders a dropdown menu of font sizes. 
+//It uses the `useCommands` and `useActive` hooks from `remirror` to set and retrieve the font size.
