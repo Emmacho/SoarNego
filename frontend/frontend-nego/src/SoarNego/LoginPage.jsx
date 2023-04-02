@@ -4,10 +4,8 @@ import { Field, Formik, Form } from "formik";
 import { useState } from 'react';
 import AuthenticationService from './AuthenticationService.js';
 import { useNavigate } from "react-router-dom";
-import { useUserContext } from './providers/UserProvider.jsx';
 import HeaderComponent from "./HeaderComponent";
 import { Link } from 'react-router-dom';
-import { Button } from '@mui/material';
 
 function LoginPage (){
 
@@ -22,17 +20,7 @@ function LoginPage (){
  
 
     function handleLoginClicked(value){
-        // if(value.username==='user' && value.password==='dummy'){
-        //     // userContext.setAuthUser(value.username)
-        //     AuthenticationService.registerSuccessfulLogin(value.username,value.password)
-        //     // console.log(AuthenticationService.isUserLoggedIn());
-        //     navigate(`/`)
-            
-        // }
-        // else {
-        //     setshowSuccessMessage(false)
-        //     sethasLoginFailed(true)
-        // }
+        
 
         AuthenticationService
         . executeJwtAuthenService(value.firstname, value.password)
