@@ -4,6 +4,7 @@ import JsonDiffReact from 'jsondiffpatch-for-react';
 import ShowDiffContext from './ShowDiffContext';
 import FileContext from "./providers/FileExporerContext";
 import axios from "axios";
+import { Fab } from "@mui/material";
 const compareJson = (left, right, setDelta) => {
   const jsondiffpatch = require('jsondiffpatch').create({
     objectHash: (obj) => obj._id || obj.id,
@@ -26,7 +27,6 @@ const compareJson = (left, right, setDelta) => {
 
 export const SeePrevious = () => {
   const [fileList, setFileList] = useState([]);
-
   const selectedFile = useContext(FileContext)
   const [delta, setDelta] = useState(null);
   const { showDiff } = useContext(ShowDiffContext);
@@ -44,7 +44,7 @@ export const SeePrevious = () => {
     try {
       const response = await axios.get("http://localhost:8080/api/get/all-files");
       const files = response.data;
-      setFileList(files);
+      setFileList(Array.isArray(files) ? files : []);
     } catch (error) {
       console.error("Error fetching files:", error);
     }
