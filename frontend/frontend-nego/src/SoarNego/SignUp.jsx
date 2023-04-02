@@ -58,7 +58,7 @@ function SignUpDetails () {
       <div>
 
       <HeaderComponent />
-      
+        <br />
       {hasLoginFailed && <div className="alert alert-warning">Invalid Credentials</div>}
       {showSuccessMessage && <div>Sucessful Registration</div>}
       
