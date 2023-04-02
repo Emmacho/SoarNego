@@ -57,6 +57,8 @@ export function Explorer() {
               response.data.fileName,
               response.data.fileId
             );
+            // Refresh the file list after successfully saving the file
+            fetchAllFiles();
           })
           .catch(function (error) {
             console.log(error);
