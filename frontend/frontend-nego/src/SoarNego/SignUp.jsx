@@ -7,7 +7,7 @@ import HeaderComponent from "./HeaderComponent.jsx";
 
 
 
-function SignInDetails () {
+function SignUpDetails () {
   const navigate = useNavigate();
   const [hasLoginFailed, sethasLoginFailed] = useState(false)
   const [showSuccessMessage, setshowSuccessMessage] = useState(false)
@@ -16,9 +16,7 @@ function SignInDetails () {
         return Yup.object().shape({
           firstname: Yup.string().required('firstname is required'),
           lastname: Yup.string()
-            .required('lastname is required')
-            .min(6, 'lastname must be at least 6 characters')
-            .max(20, 'lastname must not exceed 20 characters'),
+            .required('lastname is required'),
           email: Yup.string()
             .required('Email is required')
             .email('Email is invalid'),
@@ -212,4 +210,4 @@ function SignInDetails () {
     )
 }
 
-export default SignInDetails 
+export default SignUpDetails 

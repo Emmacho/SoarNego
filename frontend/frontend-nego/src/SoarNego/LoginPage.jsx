@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useUserContext } from './providers/UserProvider.jsx';
 import HeaderComponent from "./HeaderComponent";
 import { Link } from 'react-router-dom';
-
+import { Button } from '@mui/material';
 
 function LoginPage (){
 
@@ -83,7 +83,17 @@ function LoginPage (){
                                     <button className="btn btn-success" type='submit'>Login</button>
                                     <div>
                                         
-                                        <Link to='/singIn'>Sign in</Link>
+                                    <Link to="/signup" style={{
+                                        display: 'inline-block',
+                                        marginTop: '10px',
+                                        padding: '10px 20px',
+                                        backgroundColor: '#007bff',
+                                        color: 'white',
+                                        textDecoration: 'none',
+                                        borderRadius: '5px'
+                                    }}>
+                                        Sign Up
+                                    </Link>
 
                                     </div>
                                     
