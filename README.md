@@ -7,15 +7,17 @@ A textual negotiation support system
 After Pulling from git the following steps should be followed in order to setup the
 SoarNego Application:
 
-1) npm install in order to get the required packages
+1) Run this command in your terminal to install all required libraries 
+```bash
+npm install
+```
 
 2) Create a postgresql database named SoarNego, we used pgAdmin to achieve this
 
-3) After this has finished neavigate to application.properties:
+3) After this has finished navigate to application.properties:
 
-    SoarNego->backend->restful-web-services1.0->src->main->resources->application.properties
-
-    [Found Here](backend/restful-web-services1.0/src/main/resources/application.properties)
+    Found here:
+    [/backend/restful-web-services1.0/src/main/resources/application.properties](backend/restful-web-services1.0/src/main/resources/application.properties)
 
 4) Once in the application.properties make sure to change the following.
 
