@@ -46,7 +46,7 @@ SoarNego Application:
     npm start
     ```
 
-    if everything has run properly you should see the application launch in your browser. If the page you are brought to says
+    If everything has run properly you should see the application launch in your browser. If the page you are brought to says
     "An Error Occurred. I don't know what to do! Contact support at ####to be supplied###" this is the current functionality.
 
 7) Navigate to /login by manually replacing the URL
@@ -71,8 +71,8 @@ and make changes to your text, such as highlights, formatting, etc.
 
 4) On the left side of the editor there is a option for you to select the files that you want to use, only .docx files are currently supported
 
-5) Once you have loaded these files that you would like to use please click on them to load them then use ctrl-s to save them to the database and then
-refresh the page. Currently it is the only way to convert from HTML to usable JSON file for the editor
+5) Once you have loaded these files that you would like to use please click on them to load them then use ctrl-s or cmd-s to save them to the database and then
+refresh the page. Currently it is the only way to convert from HTML to a usable JSON file for the editor
 
 6) If you would like to compare documents you should be able to select a file on the left, the name of the file you
 are currently using should be on the top, then once you select seePrvious at the top of the screen, a file pane will open on the right where you
