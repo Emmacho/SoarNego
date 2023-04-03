@@ -14,6 +14,7 @@ function LogoutComponent (){
                 <div className="container">
                     Thank You for Using Our Application.
                     {console.log(isUserLoggedIn)}
+                    
                 </div>
             </>
         )

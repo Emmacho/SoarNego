@@ -1,3 +1,4 @@
+/*
 
   package com.bankend.restfulwebservices10.soarnego;
   
@@ -22,4 +23,4 @@ import org.springframework.web.bind.annotation.RestController;
   
 	  } 
   }
- 
+ */
