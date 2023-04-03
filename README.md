@@ -62,7 +62,7 @@ SoarNego Application:
 
     *Please make sure the port you run your database on and the port in your application.properties under spring.datasource.url are matching*
 
-3) Once the database has been configured please run the java application by running the application.java class.
+3) Once the database has been configured please run the java application by running application.java.
 
     Found here: [backend/restful-web-services1.0/src/main/java/com/bankend/restfulwebservices10/Application.java](backend/restful-web-services1.0/src/main/java/com/bankend/restfulwebservices10/Application.java)
 
