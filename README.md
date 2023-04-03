@@ -75,5 +75,5 @@ and make changes to your text, such as highlights, formatting, etc.
 refresh the page. Currently it is the only way to convert from HTML to a usable JSON file for the editor
 
 6) If you would like to compare documents you should be able to select a file on the left, the name of the file you
-are currently using should be on the top, then once you select seePrvious at the top of the screen, a file pane will open on the right where you
+are currently using should be on the top, then once you select seePrevious at the top of the screen, a file pane will open on the right where you
 can select which file version you would like to compare to.
