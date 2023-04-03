@@ -39,6 +39,7 @@ For Mac:
     This will display all existing databases and owners,
     
    *Note that the owner of the soarnego database will be your $DBusername and there is no default password so it will be an empty field*
+7) To exit the database, use control-d
 
 ## Set Up
 
