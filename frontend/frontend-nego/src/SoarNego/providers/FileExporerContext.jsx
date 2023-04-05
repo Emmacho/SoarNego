@@ -1,4 +1,4 @@
-import { createContext,useState, useCallback } from "react";
+import { createContext,useState, useEffect } from "react";
 import { getEditorObject } from "../Editor";
 
 const FileContext = createContext();
@@ -22,10 +22,12 @@ export function FileContextProvider({children}){
           }
     )
 
-    const [fileContentToLoad, SetfileContentToLoad]=useState("")
-    const [indexToloadFromFileArrayObj, SetIndexToloadFromFileArrayObj]=useState("")
+    const [fileContentToLoad, SetfileContentToLoad]=useState("Empty")
+    const [indexToloadFromFileArrayObj, SetIndexToloadFromFileArrayObj]=useState("kkk")
+    const [indexSel, SetIndexSel]=useState(0)
+    
 
-
+    const [dummyIndexSel1, setDummyIndexSel1] = useState(0)
     const [fileIdDataObj, setFileIdDataObj] = useState([])
 
     const [currentFile, setCurrentFile] = useState('')
@@ -38,7 +40,7 @@ export function FileContextProvider({children}){
                 ]
               }
     )
-
+   const[counter, setCounter] = useState(1);
 
     const addToFileList = (name,checked,isOpen,fileIndex) =>{
         setFileItems({...fileItems,
@@ -94,45 +96,29 @@ export function FileContextProvider({children}){
 
                         }
                 
-                
-                
-
                     }
-                
                 
 
                 }
 
-
-            }
-            
+            }    
         }
-        //populate array that would be used to store all file loaded into the directory with- File identity and content
-        //console.log(ContractContent, fileIdentifier)
+        //populate array that would be used to store all file loaded into the file directory with- File identity and content
         addFileIndexAndContentIntoObject(fileIdentifier,ContractContent)
-
-        //fileArrayHolder.push(fileIdentifier,ContractContent)
 
         // Pass function to populate this object FileIdDataObj
 
     }
     
 
-    
-
     const addFileIndexAndContentIntoObject= (fileId, fileContent )=>{
         
-        // setFileIdDataObj({...fileIdDataObj,
-        //     fileIdDataObj:{fileId, fileContent}})
-        //let arr = []
+        
         setFileIdDataObj((prevVal)=>{
-            //prevVal = Object.assign({}, prevVal);
-            //let newState = {...prevVal, fileId: fileId, fileContent: fileContent}
-            fileIdDataObj.push( { ...prevVal, fileId: fileId, fileContent: fileContent});
-            //arr.push(newState);
-                return fileIdDataObj;
             
-            //return arr.push({fileId: fileId, fileContent: fileContent});
+            fileIdDataObj.push( { ...prevVal, fileId: fileId, fileContent: fileContent});
+                return fileIdDataObj;
+        
         })
 
         loaderFromFileArrayObj(fileIdDataObj)
@@ -142,64 +128,60 @@ export function FileContextProvider({children}){
     
     
 
-   
-
+   function filePointer(indexOfFileSel){
     
+    SetIndexSel(indexOfFileSel)
+    return(indexSel)
+   }
 
-    
+    const getFileContent = (fileId) => {
+        for (const file of fileIdDataObj) {
+            if (file.fileId === fileId) {
+                return file.fileContent
+            }
+        }
+        return undefined
+    }
 
 
     //set determinant
     //set fileContentToEditor
     const loaderFromFileArrayObj = (fileIdDataObj) =>{
-        
+        //Create an empty array to hold every file loaded into file tree. This serves like a working database
         let fileData = []
-        fileData.push(fileIdDataObj)
-         console.log("This is file data", fileData)
-        
-        // fileData.forEach(myFunction)
-        //     function myFunction(item, index)
-        //     {
-        //         if (indexToloadFromFileArrayObj === fileIdDataObj[index].fileId ){
-        //         console.log(item, index);
-        //         //SetfileContentToLoad(fileIdDataObj[index].fileContent)
-
-                
-        //         }
-        //     }
-
-
-        fileIdDataObj.forEach(function(item, index){
-                if (indexToloadFromFileArrayObj === item.fileId ){
-                  console.log(item, index);
-                  console.log(item.fileContent)
-                   SetfileContentToLoad(item.fileContent)
+        //add data of the selected file on the file tree to fileData array
+        fileData.push(fileIdDataObj) 
+        fileData.forEach(function(item, index){    
+            if (indexToloadFromFileArrayObj === item[index].fileId ){
+                   SetfileContentToLoad(item[index].fileContent)
                 }
-          
-          
               })
         
     }
 
 
-    
-
-
      //Retrieves file content from the session storage
      //Use the index to retrieve from the object fileIdDataObj
-    const sendToEditorContentLoader = (editorContentFromFileClick)=>{
-        SetIndexToloadFromFileArrayObj(editorContentFromFileClick)
-        //const fileContentToLoad = textHere
-        //uncomment next 3 lines
-        //console.log(fileContentToLoad)
-        const newEditorContent = getEditorObject(fileContentToLoad)
-        setEditorContent(newEditorContent)
-        setCurrentFile(editorContentFromFileClick)
-    }
-
-   
+        
+       if(counter === 1) {
+        var sendToEditorContentLoader = function(){};
+       }
+     
+        sendToEditorContentLoader = (editorContentFromFileClick)=>{
+            
+            const content = getFileContent(editorContentFromFileClick)
+    
+                const newEditorContent = getEditorObject(content)
+                setEditorContent(newEditorContent)
+                setCurrentFile(editorContentFromFileClick)
+            
+            }
+          
+           
+        
+        
     return(
-        <FileContext.Provider value = {{fileItems,addToFileList, readJsonFileContent, sendToEditorContentLoader, editorContent, currentFile }}>
+        <FileContext.Provider value = {{fileItems,addToFileList, readJsonFileContent, sendToEditorContentLoader, editorContent, currentFile, filePointer }}>
             {children}
         </FileContext.Provider>
 

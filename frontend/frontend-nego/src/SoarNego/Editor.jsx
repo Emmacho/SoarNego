@@ -83,7 +83,7 @@ const hooks = [
 ];
 
 
-  export const getEditorObject = (text) => {
+  export var getEditorObject = (text) => {
     return {
       type: 'doc',
       content: [
@@ -104,6 +104,8 @@ const hooks = [
   export const Editor=() =>{
     const {editorContent, currentFile} = useContext(FileContext)
 
+
+
     const [file, setFile] = useState(currentFile)
             const { manager, state,onChange} = useRemirror({
                 extensions,
@@ -120,6 +122,7 @@ const hooks = [
 
       useEffect(() => {
         if (file !== currentFile) {
+         
           manager.view.updateState(manager.createState({ content: editorContent}));
           setFile(currentFile)
 

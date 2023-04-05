@@ -9,12 +9,14 @@ import FolderTree, {testData} from "react-folder-tree";
 import 'react-folder-tree/dist/style.css';
 import FileContext from "./providers/FileExporerContext.jsx";
 import { useContext } from "react";
+ 
 
+ function  Explorer(){
 
-function Explorer(){
+    const {fileItems, sendToEditorContentLoader,  } = useContext(FileContext)
+    const {addToFileList, readJsonFileContent, filePointerContext} = useContext(FileContext)
+    var {filePointer} = useContext(FileContext)
 
-    const {fileItems, sendToEditorContentLoader } = useContext(FileContext)
-    const {addToFileList, readJsonFileContent} = useContext(FileContext)
     const {editorContent} = useContext(FileContext)
     const id = Math.floor(Math.random() * 1000)
 
@@ -25,6 +27,7 @@ function Explorer(){
     
     const treObjHolder = []
     const [selFileName, setSelFileName] = useState('');
+    
    
     const [content, setContent] = useState('');
     
@@ -51,9 +54,10 @@ function Explorer(){
 
     const handleFileClick = (state, event)=>{
         //sending the file content to a context function API that saves it in the session storage 
+        filePointer(state.nodeData._id)
         sendToEditorContentLoader(state.nodeData.fileIndex)
         //console.log("Content sent to loader", state.nodeData.fileIndex)
-        
+        //console.log("File pointer is inside", filePointer)
 
     }
 //May have to comment "handleFileChosen" function after loading JSON file works, works for laoding .txt
@@ -108,6 +112,7 @@ function Explorer(){
             fileReader.readAsText(file)
         
         }
+        //console.log("File pointer is ", filePointer)
 
     return(
         <>  
