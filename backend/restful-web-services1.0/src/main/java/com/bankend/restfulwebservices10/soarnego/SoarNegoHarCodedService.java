@@ -1,3 +1,4 @@
+/*
 package com.bankend.restfulwebservices10.soarnego;
 
 import java.util.ArrayList;
@@ -24,3 +25,4 @@ public class SoarNegoHarCodedService {
 	}
 
 }
+*/

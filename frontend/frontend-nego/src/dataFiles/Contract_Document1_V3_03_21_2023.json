@@ -1,0 +1,1073 @@
+{
+    "type": "doc",
+    "content": [
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 2
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "PART I"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 2
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "GENERAL PROVISIONS"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 3
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Article 1"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 3
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "ANTI-DISCRIMINATION AND ANTI-HARASSMENT"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 4
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "1.1  Complaint Process"
+                }
+            ]
+        },
+        {
+            "type": "orderedList",
+            "attrs": {
+                "order": 1
+            },
+            "content": [
+                {
+                    "type": "listItem",
+                    "attrs": {
+                        "closed": false,
+                        "nested": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": null,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            },
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Carleton University’s Rights Policies and Procedures (including such Discrimination and Harassment Policies as the Sexual Harassment Prevention Policy at Part IV s.4);"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "listItem",
+                    "attrs": {
+                        "closed": false,
+                        "nested": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": null,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            },
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Carleton’s Workplace Harassment Prevention Policy; ."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "listItem",
+                    "attrs": {
+                        "closed": false,
+                        "nested": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": null,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            },
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "A copy of the following documents shall be retained on the University website; in Human Resources; and in the Union Office:"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "listItem",
+                    "attrs": {
+                        "closed": false,
+                        "nested": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": null,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            },
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "New Item"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "bulletList",
+            "content": [
+                {
+                    "type": "listItem",
+                    "attrs": {
+                        "closed": false,
+                        "nested": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": null,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            },
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Carleton’s Workplace Harassment Prevention Program;"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "listItem",
+                    "attrs": {
+                        "closed": false,
+                        "nested": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": null,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            },
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "marks": [
+                                        {
+                                            "type": "textHighlight",
+                                            "attrs": {
+                                                "highlight": "red"
+                                            }
+                                        }
+                                    ],
+                                    "text": "Carleton’s Workplace Violence Prevention Policy;"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "listItem",
+                    "attrs": {
+                        "closed": false,
+                        "nested": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": null,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            },
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Carleton’s Workplace Violence Prevention Program;"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 4
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "1.2  Consideration for CUASA Position"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "attrs": {
+                "nodeIndent": 0,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": ""
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "(a)  Bargaining unit members who apply for and meet the stated requirements as posted for faculty positions shall be evaluated in the same manner as all other candidates when the University advertises for a faculty position covered by the CUASA collective agreement."
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "attrs": {
+                "nodeIndent": 0,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": ""
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "(b)  A copy of the advertisement for all faculty and instructor posts in the CUASA bargaining unit shall be sent to the Union within ten (10) working days of it’s placement in University Affairs, the CAUT Bulletin, and/or websites."
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "attrs": {
+                "nodeIndent": 0,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": ""
+            }
+        },
+        {
+            "type": "paragraph",
+            "attrs": {
+                "nodeIndent": 0,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": ""
+            }
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 3
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "ARTICLE 2 - CONFIDENTIALITY & ACCESS TO PERSONNEL FILES"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 4
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "2.1 "
+                }
+            ]
+        },
+        {
+            "type": "bulletList",
+            "content": [
+                {
+                    "type": "listItem",
+                    "attrs": {
+                        "closed": false,
+                        "nested": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": 0,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            },
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "(a) An employee shall have the right to examine the contents of the employee's personnel file(s) during normal business hours, with the exception of confidential letters of reference. The employee may request and the Employer shall provide the names of authors of such confidential notes."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "listItem",
+                    "attrs": {
+                        "closed": false,
+                        "nested": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": 0,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            },
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "(b) Except for confidential letters of reference and student teaching evaluations, no material on the employee's file related to the employee's performance shall be used in a hiring decision unless the employee has been notified that it has been placed on the file."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 4
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "2.2  Disciplinary Documents"
+                }
+            ]
+        },
+        {
+            "type": "bulletList",
+            "content": [
+                {
+                    "type": "listItem",
+                    "attrs": {
+                        "closed": false,
+                        "nested": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": 0,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            },
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "marks": [
+                                        {
+                                            "type": "textHighlight",
+                                            "attrs": {
+                                                "highlight": "green"
+                                            }
+                                        }
+                                    ],
+                                    "text": "(a)  Subject to Article 12.5, where a letter imposing discipline, or other disciplinary documents, or both is being added to an employee’s file, the employee must, where possible, be notified and asked to initial any documents relating to the disciplinary action"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "listItem",
+                    "attrs": {
+                        "closed": false,
+                        "nested": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": 0,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            },
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "marks": [
+                                        {
+                                            "type": "textHighlight",
+                                            "attrs": {
+                                                "highlight": "green"
+                                            }
+                                        }
+                                    ],
+                                    "text": "(b)  In the event of alleged distortion or error, the employee may request the inclusion of material pertinent to the alleged distortion or error. In the event of an error being established, the file shall be corrected and any erroneous material removed."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": 0,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 2
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "PART II"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 2
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "STRATEGIC PRIORITIES"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 3
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "TITLE I"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 3
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "HUMAN RIGHTS, DEMOCRACY, AND GOVERNANCE"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 3
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "IN PEOPLE-CENTRED AND RIGHTS-BASED SOCIETIES"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "attrs": {
+                "nodeIndent": 0,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": ""
+            }
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 2
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "ARTICLE 3 - POSTINGS AND APPLICATIONS"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 4
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "15.1"
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "attrs": {
+                "nodeIndent": 0,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": ""
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Except as provided in Article 17 and Article 16, all positions shall be advertised and applications solicited in accordance with this Article."
+                }
+            ]
+        },
+        {
+            "type": "orderedList",
+            "attrs": {
+                "order": 1
+            },
+            "content": [
+                {
+                    "type": "listItem",
+                    "attrs": {
+                        "closed": false,
+                        "nested": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": null,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            },
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "Departments that anticipate hiring Contract Instructors shall post their notices and send a copy to the Union by May 1st for courses being offered for the following fall and winter and by December 15th for courses being offered in the summer."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "listItem",
+                    "attrs": {
+                        "closed": false,
+                        "nested": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": null,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            },
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "If no courses are available by these deadlines, the department shall post a notice, with a copy sent to the union, indicating whether it will not hire Contract Instructors in the following term(s), or whether the posting is simply delayed. A timeline for posting may be included if known."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "attrs": {
+                "nodeIndent": 0,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": ""
+            }
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 4
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "15.2"
+                }
+            ]
+        },
+        {
+            "type": "bulletList",
+            "content": [
+                {
+                    "type": "listItem",
+                    "attrs": {
+                        "closed": false,
+                        "nested": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": 0,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            },
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "(a) Except for needs which arise within ten weeks of the start of classes (Article 16.9), courses which become available after the May 1st and December 15th deadlines must be posted as quickly as possible, and an electronic copy provided to the Union within five (5) business days. Additionally, departments shall make an effort to notify members of the added postings."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "listItem",
+                    "attrs": {
+                        "closed": false,
+                        "nested": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": 0,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            },
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "(b) Notices shall be posted for at least twenty-one (21) calendar days on websites, with a copy to the Union. Each notice shall include:"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "bulletList",
+                            "content": [
+                                {
+                                    "type": "listItem",
+                                    "attrs": {
+                                        "closed": false,
+                                        "nested": false
+                                    },
+                                    "content": [
+                                        {
+                                            "type": "paragraph",
+                                            "attrs": {
+                                                "nodeIndent": null,
+                                                "nodeTextAlignment": "left",
+                                                "nodeLineHeight": 2,
+                                                "style": ""
+                                            },
+                                            "content": [
+                                                {
+                                                    "type": "text",
+                                                    "text": "(i)  the course number, title and description,"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "listItem",
+                                    "attrs": {
+                                        "closed": false,
+                                        "nested": false
+                                    },
+                                    "content": [
+                                        {
+                                            "type": "paragraph",
+                                            "attrs": {
+                                                "nodeIndent": null,
+                                                "nodeTextAlignment": "left",
+                                                "nodeLineHeight": 2,
+                                                "style": ""
+                                            },
+                                            "content": [
+                                                {
+                                                    "type": "text",
+                                                    "text": "(ii)  the qualifications required for the position,"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "attrs": {
+                "nodeIndent": 0,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": ""
+            }
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 2
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "ARTICLE 4 - WORKING CONDITIONS"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "attrs": {
+                "nodeIndent": null,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": "",
+                "level": 4
+            },
+            "content": [
+                {
+                    "type": "text",
+                    "text": "19.1 "
+                }
+            ]
+        },
+        {
+            "type": "bulletList",
+            "content": [
+                {
+                    "type": "listItem",
+                    "attrs": {
+                        "closed": false,
+                        "nested": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": 0,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            },
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "(a) To the extent that departmental resources permit, and as are required for the performance of their duties, departments shall provide employees with:"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "bulletList",
+                            "content": [
+                                {
+                                    "type": "listItem",
+                                    "attrs": {
+                                        "closed": false,
+                                        "nested": false
+                                    },
+                                    "content": [
+                                        {
+                                            "type": "paragraph",
+                                            "attrs": {
+                                                "nodeIndent": null,
+                                                "nodeTextAlignment": "left",
+                                                "nodeLineHeight": 2,
+                                                "style": ""
+                                            },
+                                            "content": [
+                                                {
+                                                    "type": "text",
+                                                    "text": "appropriate space and use of other facilities, services and equipment;"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "listItem",
+                                    "attrs": {
+                                        "closed": false,
+                                        "nested": false
+                                    },
+                                    "content": [
+                                        {
+                                            "type": "paragraph",
+                                            "attrs": {
+                                                "nodeIndent": null,
+                                                "nodeTextAlignment": "left",
+                                                "nodeLineHeight": 2,
+                                                "style": ""
+                                            },
+                                            "content": [
+                                                {
+                                                    "type": "text",
+                                                    "text": "library, computing and audio-visual facilities;"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "listItem",
+                                    "attrs": {
+                                        "closed": false,
+                                        "nested": false
+                                    },
+                                    "content": [
+                                        {
+                                            "type": "paragraph",
+                                            "attrs": {
+                                                "nodeIndent": null,
+                                                "nodeTextAlignment": "left",
+                                                "nodeLineHeight": 2,
+                                                "style": ""
+                                            },
+                                            "content": [
+                                                {
+                                                    "type": "text",
+                                                    "text": "new subitem"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "listItem",
+                    "attrs": {
+                        "closed": false,
+                        "nested": false
+                    },
+                    "content": [
+                        {
+                            "type": "paragraph",
+                            "attrs": {
+                                "nodeIndent": 0,
+                                "nodeTextAlignment": "left",
+                                "nodeLineHeight": 2,
+                                "style": ""
+                            },
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "(b)  Upon proof of having been hired for a course(s) in the upcoming Academic Year, Employees or prospective employees shall have access to library, computing and e-mail facilities as provided in Article 19.1 (a) for the purpose of performing their functions as a contract instructor."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "bulletList",
+                            "content": [
+                                {
+                                    "type": "listItem",
+                                    "attrs": {
+                                        "closed": false,
+                                        "nested": false
+                                    },
+                                    "content": [
+                                        {
+                                            "type": "paragraph",
+                                            "attrs": {
+                                                "nodeIndent": 0,
+                                                "nodeTextAlignment": "left",
+                                                "nodeLineHeight": 2,
+                                                "style": ""
+                                            },
+                                            "content": [
+                                                {
+                                                    "type": "text",
+                                                    "text": "Library access shall be maintained for a period of twelve (12) months from the last day of the end of the academic term in which the employee worked as a Contract Instructor. The parties acknowledge that any extension of library access must be consistent with the Library’s obligations under the provisions of applicable licensing agreements."
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "listItem",
+                                    "attrs": {
+                                        "closed": false,
+                                        "nested": false
+                                    },
+                                    "content": [
+                                        {
+                                            "type": "paragraph",
+                                            "attrs": {
+                                                "nodeIndent": null,
+                                                "nodeTextAlignment": "left",
+                                                "nodeLineHeight": 2,
+                                                "style": ""
+                                            },
+                                            "content": [
+                                                {
+                                                    "type": "text",
+                                                    "text": "An employee may request, in writing stating reasons, that the Employer complete the form required by the Canada Revenue Agency (currently the T2200 Form) for the employee to use in support of a claim for home office expenses. Such a request shall not be unreasonably denied."
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "paragraph",
+            "attrs": {
+                "nodeIndent": 0,
+                "nodeTextAlignment": "left",
+                "nodeLineHeight": 2,
+                "style": ""
+            }
+        }
+    ]
+}
