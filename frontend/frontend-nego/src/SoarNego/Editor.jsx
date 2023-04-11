@@ -54,11 +54,11 @@ const extensions = () => [
 
 const hooks = [
     () => {
-        const { getJSON } = useHelpers();
+        const { getJSON, getText,getHTML } = useHelpers();
         const {currentFile, fileItems } = useContext(FileContext);
         const handleSaveShortcut = useCallback(
             async ({ state }) => {
-              const content = JSON.stringify(getJSON(state));
+              const content = getHTML(state);
               
                           
               // Get the fileId from the FileContext

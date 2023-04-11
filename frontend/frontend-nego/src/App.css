@@ -378,3 +378,14 @@ li.ProseMirror-selectednode:after {
 }
 
 .ProseMirror p { margin-bottom: 1em }
+
+ins {
+	background-color: #aaffaa;
+	text-decoration: none;
+  }
+  
+  del {
+	background-color: #ffaaaa;
+	text-decoration: none;
+  }
+  
