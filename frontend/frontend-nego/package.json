@@ -19,6 +19,7 @@
     "diff-match-patch": "^1.0.5",
     "docx": "^8.0.1",
     "formik": "^2.2.9",
+    "html-differ": "^1.4.0",
     "jsondiffpatch": "^0.4.1",
     "jsondiffpatch-for-react": "^1.0.4",
     "mammoth": "^1.5.1",

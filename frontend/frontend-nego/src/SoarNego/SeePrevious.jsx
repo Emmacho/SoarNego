@@ -5,7 +5,7 @@ import ShowDiffContext from "./ShowDiffContext";
 import FileContext from "./providers/FileExporerContext";
 import axios from "axios";
 import HTMLDiff from "./HTMLdiff";
-
+// import { WysiwygToolbar } from "@remirror/react";
 export const SeePrevious = () => {
   const [fileList, setFileList] = useState([]);
   const selectedFile = useContext(FileContext);
@@ -62,9 +62,7 @@ export const SeePrevious = () => {
             style={{
               height: "800px",
               textAlign: "left",
-              overflowY: "auto",
-              whiteSpace: "pre-wrap",
-              wordWrap: "break-word",
+
             }}
           >
             {selectedFile && selectedListFile && (

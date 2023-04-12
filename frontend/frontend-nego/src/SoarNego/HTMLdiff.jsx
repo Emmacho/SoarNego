@@ -1,41 +1,49 @@
 // src/components/HTMLDiff.js
-import React from "react";
-import DiffMatchPatch from "diff-match-patch";
+import React, { useEffect, useRef,useCallback } from "react";
+import { HtmlDiffer } from "html-differ";
+import { useHelpers, useRemirrorContext } from '@remirror/react';
+import { WysiwygEditor } from '@remirror/react-editors/wysiwyg';
 
-const removeHtmlTags = (html) => {
-  const div = document.createElement("div");
-  div.innerHTML = html;
-  const paragraphs = div.getElementsByTagName("p");
-  let result = "";
-
-  for (let i = 0; i < paragraphs.length; i++) {
-    const paragraph = paragraphs[i];
-    result += paragraph.textContent || paragraph.innerText || "";
-
-    if (i < paragraphs.length - 1) {
-      result += "\n\n";
-    }
-  }
-
-  return result;
-};
+const htmlDiffer = new HtmlDiffer({
+  ignoreAttributes: ["line-height","p"],
+  compareAttributesAsJSON: [],
+  ignoreWhitespaces: true,
+  ignoreComments: true,
+  ignoreEndTags: false,
+  ignoreDuplicateAttributes: false
+});
 
 const compareHTML = (left, right) => {
-  const dmp = new DiffMatchPatch();
-  const leftText = removeHtmlTags(left);
-  const rightText = removeHtmlTags(right);
-  const diff = dmp.diff_main(leftText, rightText);
-  dmp.diff_cleanupSemantic(diff);
-  return dmp.diff_prettyHtml(diff);
+  const diff = htmlDiffer.diffHtml(left, right);
+  return diff;
 };
 
 const HTMLDiff = ({ left, right }) => {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (containerRef.current && left && right) {
+      const differences = compareHTML(left, right);
+
+      const result = differences.map(part => {
+        if (part.added) {
+          return `<ins class="diff-added">${part.value}</ins>`;
+        } else if (part.removed) {
+          return `<del class="diff-removed">${part.value}</del>`;
+        } else {
+          return part.value;
+        }
+      }).join("");
+
+      containerRef.current.innerHTML = result;
+    }
+  }, [left, right]);
+
   if (!left || !right) {
     return <div>Both inputs must be provided.</div>;
   }
 
-  const result = compareHTML(left, right);
-  return <div dangerouslySetInnerHTML={{ __html: result }} />;
+  return <div ref={containerRef} />;
 };
 
 export default HTMLDiff;

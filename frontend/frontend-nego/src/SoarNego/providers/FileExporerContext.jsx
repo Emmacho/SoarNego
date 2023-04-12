@@ -137,7 +137,7 @@ export function FileContextProvider({ children }) {
         addToFileList(file.fileName, 0, true, file.fileName + file.fileId, file.fileId);
       });
   
-      setFilesLoaded(true); // Add this line
+      setFilesLoaded(true); 
     } catch (error) {
       console.error("Error fetching files:", error);
     }
