@@ -1,7 +1,6 @@
 // src/SeePrevious.js
 import { useState, useEffect, useContext } from "react";
-import { getCurrFile } from "./Editor";
-import ShowDiffContext from "./ShowDiffContext";
+import ShowDiffContext from "./providers/ShowDiffContext";
 import FileContext from "./providers/FileExporerContext";
 import axios from "axios";
 import HTMLDiff from "./HTMLdiff";

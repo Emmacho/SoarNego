@@ -52,34 +52,7 @@ export function Explorer() { //Defining a named function component called Explor
         head.remove();
       }
    
-      
-      const paragraphs = htmlDoc.querySelectorAll('p');
-      paragraphs.forEach((p) => {
-        p.setAttribute("data-line-height-align",'2')
-        p.setAttribute('data-node-text-align', 'left');
-        p.style.textAlign = 'left';
-        p.style.lineHeight= '2'
-        
-      });
 
-      // const orderedListItems = htmlDoc.querySelectorAll('ol li');
-      // orderedListItems.forEach((li) => {
-      //   li.setAttribute('data-node-text-align', 'left');
-      //   li.setAttribute('data-line-height-align', '2');
-      //   li.style.lineHeight = '2';
-      //   li.style.textAlign = 'left';
-      // });
-
-      // const unorderedListItems = htmlDoc.querySelectorAll('ul li');
-      // unorderedListItems.forEach((li) => {        
-        
-      //   li.setAttribute('data-node-text-align', 'left');
-      //   li.setAttribute('data-line-height-align', '2');
-      //   li.style.lineHeight = '2';
-      //   li.style.textAlign = 'left';
-      //   // li.innerHTML = li.innerHTML.replace(/^(\s*<p>)(\s*<span[^>]*>[^<]+<\/span>\s*)/, '$1');
-        
-      // });
 
 
       const serializer = new XMLSerializer();

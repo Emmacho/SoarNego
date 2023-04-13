@@ -22,6 +22,7 @@
     "html-differ": "^1.4.0",
     "jsondiffpatch": "^0.4.1",
     "jsondiffpatch-for-react": "^1.0.4",
+    "lodash": "^4.17.21",
     "mammoth": "^1.5.1",
     "prosemirror-example-setup": "^1.2.1",
     "prosemirror-model": "^1.19.0",

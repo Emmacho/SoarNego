@@ -19,7 +19,6 @@ export function FileContextProvider({ children }) {
   const [currentFileId, setCurrentFileId] = useState(null)
   const [filesLoaded, setFilesLoaded] = useState(false);
   const [editorContent, setEditorContent] = useState(
-
     {
       type: 'doc',
       content: [
@@ -42,7 +41,6 @@ export function FileContextProvider({ children }) {
         },
       ]
     }
-
   )
   const [currentFile, setCurrentFile] = useState('')
 

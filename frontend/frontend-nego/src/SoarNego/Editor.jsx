@@ -1,15 +1,17 @@
 
 import 'remirror/styles/all.css';
 import { useCallback, useState, useEffect, useContext } from 'react';
+// From remirror extensions: https://remirror.io/docs/extensions/
 import {
   BoldExtension, ItalicExtension, ImageExtension, DropCursorExtension, FontSizeExtension, HeadingExtension, LinkExtension, NodeFormattingExtension,
-  BulletListExtension, OrderedListExtension, TaskListExtension, TextHighlightExtension, EntityReferenceExtension, EntityReferenceMetaData, findMinMaxRange,
+  BulletListExtension, OrderedListExtension, TaskListExtension, TextHighlightExtension,
 } from 'remirror/extensions';
+//from https://remirror.io/docs/
 import {
   EditorComponent, ThemeProvider, Remirror, useRemirror, useHelpers, useKeymap, Toolbar, ToggleItalicButton, ToggleBoldButton,
   CommandButtonGroup, DecreaseFontSizeButton, IncreaseFontSizeButton, HeadingLevelButtonGroup, UndoButton, RedoButton,
   TextAlignmentButtonGroup,
-  ListButtonGroup,
+  ListButtonGroup,useSetState
 } from '@remirror/react';
 
 // The first line imports the CSS styles for the `remirror` library.
@@ -22,11 +24,14 @@ import FileContext from "./providers/FileExporerContext";
 
 import { ToggleListItemExtension } from "./remirrorCustomExtensions/ToggleListItemExtension.jsx"
 import { HighlightButtons } from './remirrorComponents/HighlightButtons';
+import { WysiwygEditor } from '@remirror/react-editors/wysiwyg';
+
 
 import { FontSizeButtons } from './remirrorComponents/FontSizeButtons';
 import { LineHeightButtonDropdown } from './remirrorComponents/LineHeightButtonDropdown';
 // These lines import the `FileContext` and `useContext` hooks from the `react` library, as well as a custom extension called `ToggleListItemExtension`.
 import axios from 'axios';
+import _ from 'lodash';
 
 
 const extensions = () => [
@@ -37,56 +42,97 @@ const extensions = () => [
   new DropCursorExtension(),
   new FontSizeExtension({ defaultSize: '16', unit: 'px' }),
   new LinkExtension({ autoLink: true }),
-  new NodeFormattingExtension(),
   new BulletListExtension(),
   new OrderedListExtension(),
   new ToggleListItemExtension(),
   new TaskListExtension(),
   new TextHighlightExtension(),
-
+  new NodeFormattingExtension()
 ];
 
 
 
 
-const hooks = [
+const hooks =({setSaving,state})=> [
   () => {
-    const { getJSON, getHTML } = useHelpers();
+    const { getHTML } = useHelpers();
     const { currentFile, fileItems } = useContext(FileContext);
-    const handleSaveShortcut = useCallback(
-      async ({ state }) => {
-        const content = getHTML(state);
-        // Get the fileId from the FileContext
-        const fileItem = fileItems.children.find(item => item.fileIndex === currentFile);
-        const fileId = fileItem?.fileId;
-        console.log('File ID:', fileId);
-        console.log('File ID:', fileItem.name);
-        // Replace the URL below with your Spring Boot API endpoint
-        const url = `http://localhost:8080/api/update/files/${fileId}`;
-        try {
-          const response = await axios.put(url, {
 
-            fileName: fileItem.name,
-            fileContent: content,
-          });
-          console.log('File saved successfully');
-        } catch (error) {
-          console.error('Error saving file:', error.message);
-        }
+    const saveContent = useCallback(async () => {
+      setSaving(true); // Indicate that a save is in progress
+      const fileItem = fileItems.children.find(item => item.fileIndex === currentFile);
+      const fileId = fileItem?.fileId;
+      const url = `http://localhost:8080/api/update/files/${fileId}`;
+      try {
+        const response = await axios.put(url, {
+          fileName: fileItem.name,
+          fileContent: getHTML(),
+        });
+        console.log('File saved successfully');
+      } catch (error) {
+        console.error('Error saving file:', error.message);
+      } finally{
+        setTimeout(() => {
+          setSaving('idle');
+        }, 3000); // Reset the saving status to 'idle' after 2 seconds
+      }
+    }, [getHTML, currentFile, fileItems.children]);
+
+    // adds a 100ms delay
+    const debouncedSaveContent = useCallback(_.debounce(saveContent, 100), [saveContent]);
+    useEffect(() => {
+      debouncedSaveContent();
+    }, [state]);
+    const handleSaveShortcut = useCallback(
+      async () => {
+        await saveContent();
         return true; // Prevents any further key handlers from being run.
       },
-      [getJSON, currentFile, fileItems.children],
-
-
+      [debouncedSaveContent],
     );
-    useKeymap('Mod-s', handleSaveShortcut);
-  }
 
+    useKeymap('Mod-s', handleSaveShortcut);
+
+    // Save content whenever the editor state changes
+    useEffect(() => {
+      saveContent();
+    },[getHTML]);
+  },
 ];
+
 
 
 // This defines an array of hooks that will be used in the editor. The only hook defined here is a custom hook that listens for the `Ctrl/CMD+s` keyboard shortcut and logs the editor's content to the console.
+function SaveButton() {
+  const { getHTML } = useHelpers();
+  const { currentFile, fileItems } = useContext(FileContext);
 
+  const handleClick = useCallback(async () =>{
+    
+    const fileItem = fileItems.children.find(item => item.fileIndex === currentFile);
+    const fileId = fileItem?.fileId;
+   // URL below with Spring Boot API endpoint
+   const url = `http://localhost:8080/api/update/files/${fileId}`;
+   try {
+     const response = await axios.put(url, {
+       fileName: fileItem.name,
+       fileContent: getHTML(),
+     });
+     console.log('File saved successfully');
+     
+   } catch (error) {
+     console.error('Error saving file:', error.message);
+   }
+  } 
+  
+  , [getHTML]);
+
+  return (
+    <button onMouseDown={(event) => event.preventDefault()} onClick={handleClick}>
+      Save
+    </button>
+  );
+}
 
 export const getEditorObject = (text) => {
   try {
@@ -126,15 +172,16 @@ export const Editor = () => {
 
   const [file, setFile] = useState(currentFile)
 
+  const [saving, setSaving] = useState(false);
 
-  const { manager, state, onChange } = useRemirror({
+  const { manager, state, setState,onChange  } = useRemirror({
     extensions,
     content: editorContent,
     stringHandler: 'html',
 
   });
 
-
+  
 
 
   useEffect(() => {
@@ -148,35 +195,44 @@ export const Editor = () => {
   }, [currentFile, file])
 
   // This is a useEffect hook that listens for changes to the `currentFile` state and updates the editor's content accordingly.
-
   return (
     <>
       <ThemeProvider>
+      
+
         <Remirror
           manager={manager}
           state={state}
-          hooks={hooks}
+          hooks={hooks({setSaving,state})}
           onChange={onChange}
-        >
+        >      
+        
+
           <Toolbar>
+
             <UndoButton />
             <RedoButton />
+            
             <CommandButtonGroup>
               <DecreaseFontSizeButton />
               <FontSizeButtons />
               <IncreaseFontSizeButton />
             </CommandButtonGroup>
-            <TextAlignmentButtonGroup />
             <ToggleItalicButton />
             <ToggleBoldButton />
-            <LineHeightButtonDropdown />
             <HeadingLevelButtonGroup showAll />
             <ListButtonGroup />
-            <HighlightButtons />
+            <SaveButton />
+            {saving !== 'idle' && (
+            <div className="saving-label">
+              {saving === 'saving' ? 'Saving...' : 'Saved'}
+            </div>)}          
           </Toolbar>
+          
           <EditorComponent />
         </Remirror>
       </ThemeProvider>
+
     </>
   );
 

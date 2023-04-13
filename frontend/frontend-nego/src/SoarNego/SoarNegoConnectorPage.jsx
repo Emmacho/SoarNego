@@ -12,7 +12,7 @@ import SignUpDetails from './SignUp';
 import Layout from './Layout';
 import { UserProvider } from './providers/UserProvider';
 import { FileContextProvider } from './providers/FileExporerContext';
-import {ShowDiffProvider} from './ShowDiffContext';
+import {ShowDiffProvider} from './providers/ShowDiffContext';
 
 
 
