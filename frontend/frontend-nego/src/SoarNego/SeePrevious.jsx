@@ -136,7 +136,7 @@ If there is an error, log it to the console */
       const dmp = new diff_match();
       dmp.Diff_Timeout = 1.0
       dmp.Diff_EditCost = 4.0
-      var diffPlainText = Dmp.diff_main(leftRawText,rightRawText)
+      var diffPlainText = Dmp.diff_main(rightRawText, leftRawText)
       Dmp.diff_cleanupEfficiency(diffPlainText);
       var ds = Dmp.diff_prettyHtml(diffPlainText);
       setFileDiff(ds)
