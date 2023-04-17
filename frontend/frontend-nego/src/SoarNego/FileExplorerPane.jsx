@@ -38,17 +38,33 @@ export function Explorer() { //Defining a named function component called Explor
    * This function converts a .docx file to HTML and then sends the resulting data to the server. */
   const handleFileChosen = async (file) => {
     const fileName = file.name;
-    
+  
     // Use mammoth (from the window object) to convert .docx to HTML
     const arrayBuffer = await file.arrayBuffer();
     mammoth
-      .convertToHtml({ arrayBuffer })
-      .then(async (result) => {
-        const html = result.value;
+    .convertToHtml({ arrayBuffer })
+    .then(async (result) => {
+      const parser = new DOMParser();
+      const htmlDoc = parser.parseFromString(result.value, 'text/html');
+      
+      const head = htmlDoc.querySelector('head');
+      if (head) {
+        head.remove();
+      }
+   
+
+
+
+      const serializer = new XMLSerializer();
+      const modifiedHtml = serializer
+        .serializeToString(htmlDoc)
+        .replace(/ xmlns="[^"]+"/, "");
+        
+      console.log(modifiedHtml);
         const fileData = {
           fileId: 1,
           fileName,
-          fileContent: html,
+          fileContent: modifiedHtml,
         };
   
         if (!fileData.fileName || !fileData.fileContent) return;
@@ -71,6 +87,7 @@ export function Explorer() { //Defining a named function component called Explor
         console.log("Error converting .docx to HTML:", error);
       });
   };
+  
   
 
   useEffect(() => {

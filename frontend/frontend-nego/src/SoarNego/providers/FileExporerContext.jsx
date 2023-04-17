@@ -19,7 +19,6 @@ export function FileContextProvider({ children }) {
   const [currentFileId, setCurrentFileId] = useState(null)
   const [filesLoaded, setFilesLoaded] = useState(false);
   const [editorContent, setEditorContent] = useState(
-
     {
       type: 'doc',
       content: [
@@ -42,7 +41,6 @@ export function FileContextProvider({ children }) {
         },
       ]
     }
-
   )
   const [currentFile, setCurrentFile] = useState('')
 
@@ -137,7 +135,7 @@ export function FileContextProvider({ children }) {
         addToFileList(file.fileName, 0, true, file.fileName + file.fileId, file.fileId);
       });
   
-      setFilesLoaded(true); // Add this line
+      setFilesLoaded(true); 
     } catch (error) {
       console.error("Error fetching files:", error);
     }

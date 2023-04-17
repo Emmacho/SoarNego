@@ -1,12 +1,10 @@
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import {useState,useContext} from 'react';
-import ShowDiffContext from './ShowDiffContext';
+import ShowDiffContext from './providers/ShowDiffContext';
 
-import { SeePrevious } from './SeePrevious';
 function Features(){
     const { setShowDiff } = useContext(ShowDiffContext);
-    const [filesToCompare, setFilesToCompare] = useState([]);
 
     return(
         <>
