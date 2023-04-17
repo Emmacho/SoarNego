@@ -132,7 +132,7 @@ If there is an error, log it to the console */
       var div = document.createElement("div")
       div.innerHTML = left
       var leftRawText = div.textContent || div.innerText || ""
-      console.log("Source where called leftRawText",leftRawText )
+      
       const dmp = new diff_match();
       dmp.Diff_Timeout = 1.0
       dmp.Diff_EditCost = 4.0
