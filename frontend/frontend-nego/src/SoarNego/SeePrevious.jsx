@@ -10,6 +10,9 @@ import ShowDiffContext from './ShowDiffContext';
 import FileContext from "./providers/FileExporerContext";
 import axios from "axios";
 import { Fab } from "@mui/material";
+import { diff_match } from "../adoptedResource/diff_match_patch";
+import { Parser } from 'html-to-react';
+
 
 /*Create a function called "compareJson" which takes in two objects "left" and "right" along with a callback function called "setDelta".
  This function uses the "jsondiffpatch" library to compare the two objects and updates the "delta" state by calling "setDelta" with the resulting delta*/ 
@@ -24,22 +27,34 @@ const compareJson = (left, right, setDelta) => {
       minLength: 60,
     },
   });
+  
 
   const delta = jsondiffpatch.diff(left, right);
 
   setDelta(delta);
+
+
+
+  
+  
 };
+
+
 
 
 export const SeePrevious = () => {//Define a functional component called "SeePrevious"
   const [fileList, setFileList] = useState([]);//Use the "useState" hook to initialize a state variable called "fileList" and set its initial value to an empty array
   const selectedFile = useContext(FileContext)//Use the "useContext" hook to get the value of "selectedFile" from the "FileContext"
   const [delta, setDelta] = useState(null);//Use the "useState" hook again to initialize a state variable called "delta" and set its initial value to null
-  const { showDiff } = useContext(ShowDiffContext);//Use the "useContext" hook again to get the value of "showDiff" from the "ShowDiffContext"
+  const { showDiff, extractPlainTextFromRemirrorJson } = useContext(ShowDiffContext);//Use the "useContext" hook again to get the value of "showDiff" from the "ShowDiffContext"
   const [selectedListFile, setSelectedListFile] = useState(null);//Use the "useContext" hook again to get the value of "showDiff" from the "ShowDiffContext"
+  const [fileDiff, setFileDiff] = useState('')
   
 
   var left//Define a variable called "left" but do not assign it a value yet
+  var Dmp = new diff_match()  //instatiate diff_match
+  Dmp.Diff_Timeout = 1.0  //setting the timeout
+  Dmp.Diff_EditCost = 4.0   //settin g the edit cost
   
 /*Use an "if" statement to check if "selectedFile" is not null. 
 If it is not null, assign the "editorContent" property of "selectedFile" to the "left" variable
@@ -47,6 +62,8 @@ Define an asynchronous function called "fetchFileList" which makes an HTTP GET r
 If there is an error, log it to the console */
   if (selectedFile) {
     left = selectedFile.editorContent
+    
+    
   }
   
   async function fetchFileList() {
@@ -56,7 +73,7 @@ If there is an error, log it to the console */
   
       if (Array.isArray(files) && selectedFile) {
         
-        console.log(selectedFile.currentFileId)
+        //console.log(selectedFile.currentFileId)
         const filteredFiles = files.filter((file) => file.fileId !== selectedFile.currentFileId);
         setFileList(filteredFiles);
       } else {
@@ -82,6 +99,9 @@ If there is an error, log it to the console */
     if (showDiff && !delta && left && selectedFile) {
 
       compareJson(left, selectedListFile, setDelta);
+      //this is to resplace compareJson call
+      
+      CompareRawText(left, selectedListFile)
     }
 
   }, [showDiff, delta, left, selectedFile]);
@@ -96,16 +116,64 @@ If there is an error, log it to the console */
     const selectedFileObject = fileList.find(file => file.fileName === selectedFileName);
     if (selectedFileObject) {
       
-      setSelectedListFile(JSON.parse(selectedFileObject.fileContent));
+      setSelectedListFile(selectedFileObject.fileContent);
+      const rightRawText = extractPlainTextFromRemirrorJson(JSON.parse(selectedFileObject.fileContent))
+      //Extrtacting only text from right HTML text
+      // const rightRawTextHtml = selectedFileObject.fileContent
+      // var divRight = document.createElement("divRight")
+      // divRight.innerHTML = rightRawTextHtml
+      // var rightRawText = divRight.textContent || divRight.innerText || ""
+      //console.log("Source where called raw right JSON",JSON.parse(selectedFileObject.fileContent) )
+      console.log("Source where called raw right",rightRawText )
+      //const leftRawText = extractPlainTextFromRemirrorJson(left)
+      //https://www.geeksforgeeks.org/how-to-strip-out-html-tags-from-a-string-using-javascript/
+      //Extract the text without html tags
+      // refactor by implementing a function here
+      var div = document.createElement("div")
+      div.innerHTML = left
+      var leftRawText = div.textContent || div.innerText || ""
+      console.log("Source where called leftRawText",leftRawText )
+      const dmp = new diff_match();
+      dmp.Diff_Timeout = 1.0
+      dmp.Diff_EditCost = 4.0
+      var diffPlainText = Dmp.diff_main(leftRawText,rightRawText)
+      Dmp.diff_cleanupEfficiency(diffPlainText);
+      var ds = Dmp.diff_prettyHtml(diffPlainText);
+      setFileDiff(ds)
+
+
     }
+    
+    //console.log("Source where called raw left", left )
   };
 
+  const CompareRawText = (left, selectedListFile) => {
 
+    if (left & selectedListFile){
+      //leftRawText to call context function extractPlainTextFromRemirrorJson, which extract only text from remirror JSON
+   
+    //rightRawText extract raw text  from remirror JSON by calling context function extractPlainTextFromRemirrorJson
+    
+    
+
+    }
+    
+  }
+
+  
 /*
 *If "showDiff" is true, render a select element that has an "onChange" event listener that calls the "handleFileSelect" function. 
  * Inside the select element, map through the "fileList" array and render an option element for each file.
  * Also render a div element with some CSS styles that display the JSON diff using the "JsonDiffReact" component if "selectedFile" and "delta" and "left" are all not null.
  * Pass in the "left", "selectedListFile", "delta", and "jsondiffpatch" props to the "JsonDiffReact" component. */
+  //console.log("left", left)
+  //console.log("right", selectedListFile)
+
+  //console.log("Source where called left before return",left )
+  //console.log("Source where called right before return",selectedListFile )
+
+  //console.log("Source where called  raw left",leftRawText )
+  
 
   return (
     <div>
@@ -131,23 +199,12 @@ If there is an error, log it to the console */
             }
           }>
             {selectedFile && delta && (
-              <JsonDiffReact
-                left={left}
-                right={selectedListFile}
-                delta ={delta}
-                jsondiffpatch={{
-                  objectHash: (obj) => obj._id || obj.id,
-                  arrays: {
-                    detectMove: true,
-                    includeValueOnMove: true,
-                  },
-                  textDiff: {
-                    minLength: 60,
-                  },
-                }}
-
-              />
+             
+              Parser().parse(fileDiff)
             )}
+            
+
+
           </div>
         </>
       )}

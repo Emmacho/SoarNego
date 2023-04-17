@@ -59,7 +59,7 @@ const hooks = [
         const handleSaveShortcut = useCallback(
             async ({ state }) => {
               const content = JSON.stringify(getJSON(state));
-              
+              console.log("content",content)
                           
               // Get the fileId from the FileContext
               const fileItem = fileItems.children.find(item => item.fileIndex === currentFile);
@@ -196,7 +196,8 @@ export const Editor = () => {
     }, [currentFile, file])
 
     // This is a useEffect hook that listens for changes to the `currentFile` state and updates the editor's content accordingly.
-
+    
+    
     return (
         <>
             <ThemeProvider>
