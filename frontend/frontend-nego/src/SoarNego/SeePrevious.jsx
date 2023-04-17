@@ -124,7 +124,7 @@ If there is an error, log it to the console */
       // divRight.innerHTML = rightRawTextHtml
       // var rightRawText = divRight.textContent || divRight.innerText || ""
       //console.log("Source where called raw right JSON",JSON.parse(selectedFileObject.fileContent) )
-      console.log("Source where called raw right",rightRawText )
+      //console.log("Source where called raw right",rightRawText )
       //const leftRawText = extractPlainTextFromRemirrorJson(left)
       //https://www.geeksforgeeks.org/how-to-strip-out-html-tags-from-a-string-using-javascript/
       //Extract the text without html tags
@@ -132,7 +132,6 @@ If there is an error, log it to the console */
       var div = document.createElement("div")
       div.innerHTML = left
       var leftRawText = div.textContent || div.innerText || ""
-      
       const dmp = new diff_match();
       dmp.Diff_Timeout = 1.0
       dmp.Diff_EditCost = 4.0
