@@ -19,16 +19,13 @@ import {
 import {
   EditorComponent, ThemeProvider, Remirror, useRemirror, useHelpers, useKeymap, Toolbar, ToggleItalicButton, ToggleBoldButton,
   CommandButtonGroup, DecreaseFontSizeButton, IncreaseFontSizeButton, HeadingLevelButtonGroup, UndoButton, RedoButton,
-  TextAlignmentButtonGroup,
-  ListButtonGroup, useSetState
+  ListButtonGroup,
 } from '@remirror/react';
 
 // Import custom components and hooks
 import FileContext from "./providers/FileExporerContext";
 import { ToggleListItemExtension } from "./remirrorCustomExtensions/ToggleListItemExtension.jsx"
-import { HighlightButtons } from './remirrorComponents/HighlightButtons';
 import { FontSizeButtons } from './remirrorComponents/FontSizeButtons';
-import { LineHeightButtonDropdown } from './remirrorComponents/LineHeightButtonDropdown';
 
 // Import axios for making HTTP requests and lodash for debounce functionality
 import axios from 'axios';
