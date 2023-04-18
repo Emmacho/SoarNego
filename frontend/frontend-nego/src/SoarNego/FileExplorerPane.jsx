@@ -1,5 +1,11 @@
+/**
+ * @Library https://github.com/mwilliamson/mammoth.js/
+ */
 /* global mammoth */
-
+/** 
+ * @Copyright (c) 2013, Michael Williamson
+ * All rights reserved.
+*/
 
 import React from "react";//Importing the react library, which is needed to create React components.
 import { useContext, useState, useEffect } from "react"; //Importing various hooks from the react library, which allow the component to use state and lifecycle methods.
