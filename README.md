@@ -1,6 +1,8 @@
 # SoarNego
 
 A textual negotiation support system
+
+A link to the Architecture of SoarNego [Architecture](https://github.com/umple/SoarNego/wiki/Architecture)
 ## Installing postgresql
 
 For Mac:
