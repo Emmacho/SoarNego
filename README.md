@@ -87,13 +87,7 @@ SoarNego Application:
     If everything has run properly you should see the application launch in your browser. If the page you are brought to says
     "An Error Occurred. I don't know what to do! Contact support at ####to be supplied###" this is the current functionality.
 
-6) Navigate to /login by manually replacing the URL
-
-    Example:
-
-    ```text
-    http://localhost:4200/login
-    ```
+6) Click Login at the top right of the screen
 
 ## Application use Instructions
 
@@ -115,5 +109,3 @@ refresh the page. Currently it is the only way to convert from HTML to a usable 
 6) If you would like to compare documents you should be able to select a file on the left, the name of the file you
 are currently using should be on the top, then once you select seePrevious at the top of the screen, a file pane will open on the right where you
 can select which file version you would like to compare to.
-
-    *Please note that we have not been able to interface this comparison to the editor as of now and only the raw JSON comparison is able to be showcased*
