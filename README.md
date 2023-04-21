@@ -7,7 +7,6 @@ By understanding the details of the negotiation process and the different roles 
 
 A link to the Architecture of SoarNego [Architecture](https://github.com/umple/SoarNego/wiki/Architecture)
 
-A textual negotiation support system
 ## Installing PostgreSQL
 
 ### For Mac:
