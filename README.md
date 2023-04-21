@@ -1,15 +1,15 @@
 # SoarNego
 
 A textual negotiation support system
-## Installing postgresql
+## Installing PostgreSQL
 
-For Mac:
+### For Mac:
 
 1) Install brew if you do not have it already
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     ```
-2) Then we update brew and install postgresql
+2) Then we update brew and install postgreSQL
 
     ```bash
     brew update 
@@ -28,6 +28,39 @@ For Mac:
     ```bash
     psql postgres
     ```
+5) Once you connect to the server we will create the db:
+    ```sql
+    create DATABASE SoarNego;
+    ```
+6) You can double check that this worked by running this command:
+    ```sql
+    \l
+    ```
+    This will display all existing databases and owners,
+    
+   *Note that the owner of the soarnego database will be your $DBusername and there is no default password so it will be an empty field*
+7) To exit the database, use control-d
+
+### For Linux:
+1) Run the following commands in terminal
+    ```bash
+    sudo apt update
+    sudo apt install postgresql
+    ```
+2) Verify the active status of PostgresSQL
+   ```bash
+   sudo systemctl status postgresql
+   ```
+   ![image](https://user-images.githubusercontent.com/55899878/233673653-30846544-095c-4371-908c-b10e9506728a.png)
+3) Start PostgreSQL by Accessing its Server
+    ```bash
+    sudo –i –u postgres
+    ```
+4) Next we are going to connect to the server by running:
+    ```bash
+    psql postgres
+    ```
+
 5) Once you connect to the server we will create the db:
     ```sql
     create DATABASE SoarNego;
