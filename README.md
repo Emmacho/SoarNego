@@ -1,5 +1,12 @@
 # SoarNego
 
+## Description 
+SoarNego is a textual negotiation support system. After vast amounts of research and experience with performing negotiations in several contexts, it became apparent that there was a need for a tool that would cut down on time wastage and aid in the process of real-life give-and-take discussions about changes in agreements. The SoarNego application looks to address these needs by providing an application that can show changes and assist in negotiations by offering functionalities designed with these negotiations in mind.
+
+By understanding the details of the negotiation process and the different roles that negotiators have, the SoarNego application aims to assist by providing an open-source space where one can find all the tools they need for successful negotiations.
+
+A link to the Architecture of SoarNego [Architecture](https://github.com/umple/SoarNego/wiki/Architecture)
+
 A textual negotiation support system
 ## Installing PostgreSQL
 
