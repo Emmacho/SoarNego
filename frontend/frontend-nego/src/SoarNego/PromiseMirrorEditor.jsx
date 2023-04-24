@@ -1,3 +1,6 @@
+/**
+ * @DEPRECIATED
+ */
 import React, {useEffect} from "react";
 import { EditorState, Transaction } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";

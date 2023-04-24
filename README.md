@@ -1,15 +1,21 @@
 # SoarNego
 
-A textual negotiation support system
-## Installing postgresql
+## Description 
+SoarNego is a textual negotiation support system. After vast amounts of research and experience with performing negotiations in several contexts, it became apparent that there was a need for a tool that would cut down on time wastage and aid in the process of real-life give-and-take discussions about changes in agreements. The SoarNego application looks to address these needs by providing an application that can show changes and assist in negotiations by offering functionalities designed with these negotiations in mind.
 
-For Mac:
+By understanding the details of the negotiation process and the different roles that negotiators have, the SoarNego application aims to assist by providing an open-source space where one can find all the tools they need for successful negotiations.
+
+A link to the Architecture of SoarNego [Architecture](https://github.com/umple/SoarNego/wiki/Architecture)
+
+## Installing PostgreSQL
+
+### For Mac:
 
 1) Install brew if you do not have it already
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     ```
-2) Then we update brew and install postgresql
+2) Then we update brew and install postgreSQL
 
     ```bash
     brew update 
@@ -28,6 +34,39 @@ For Mac:
     ```bash
     psql postgres
     ```
+5) Once you connect to the server we will create the db:
+    ```sql
+    create DATABASE SoarNego;
+    ```
+6) You can double check that this worked by running this command:
+    ```sql
+    \l
+    ```
+    This will display all existing databases and owners,
+    
+   *Note that the owner of the soarnego database will be your $DBusername and there is no default password so it will be an empty field*
+7) To exit the database, use control-d
+
+### For Linux:
+1) Run the following commands in terminal
+    ```bash
+    sudo apt update
+    sudo apt install postgresql
+    ```
+2) Verify the active status of PostgresSQL
+   ```bash
+   sudo systemctl status postgresql
+   ```
+   ![image](https://user-images.githubusercontent.com/55899878/233673653-30846544-095c-4371-908c-b10e9506728a.png)
+3) Start PostgreSQL by Accessing its Server
+    ```bash
+    sudo –i –u postgres
+    ```
+4) Next we are going to connect to the server by running:
+    ```bash
+    psql postgres
+    ```
+
 5) Once you connect to the server we will create the db:
     ```sql
     create DATABASE SoarNego;
@@ -87,13 +126,7 @@ SoarNego Application:
     If everything has run properly you should see the application launch in your browser. If the page you are brought to says
     "An Error Occurred. I don't know what to do! Contact support at ####to be supplied###" this is the current functionality.
 
-6) Navigate to /login by manually replacing the URL
-
-    Example:
-
-    ```text
-    http://localhost:4200/login
-    ```
+6) Click Login at the top right of the screen
 
 ## Application use Instructions
 
@@ -115,5 +148,3 @@ refresh the page. Currently it is the only way to convert from HTML to a usable 
 6) If you would like to compare documents you should be able to select a file on the left, the name of the file you
 are currently using should be on the top, then once you select seePrevious at the top of the screen, a file pane will open on the right where you
 can select which file version you would like to compare to.
-
-    *Please note that we have not been able to interface this comparison to the editor as of now and only the raw JSON comparison is able to be showcased*

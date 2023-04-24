@@ -1,39 +1,37 @@
+/**
+ * This file sets up the main text editor using the 'remirror' library, including
+ * importing necessary components and extensions, defining custom hooks, and 
+ * rendering the editor along with its toolbar.
+ * @library https://remirror.io/
+*/ 
 
+// Import the necessary CSS styles for the remirror library
 import 'remirror/styles/all.css';
 import { useCallback, useState, useEffect, useContext } from 'react';
+
 // From remirror extensions: https://remirror.io/docs/extensions/
 import {
   BoldExtension, ItalicExtension, ImageExtension, DropCursorExtension, FontSizeExtension, HeadingExtension, LinkExtension, NodeFormattingExtension,
   BulletListExtension, OrderedListExtension, TaskListExtension, TextHighlightExtension,
 } from 'remirror/extensions';
 //from https://remirror.io/docs/
+// Import components and hooks from the @remirror/react module
 import {
   EditorComponent, ThemeProvider, Remirror, useRemirror, useHelpers, useKeymap, Toolbar, ToggleItalicButton, ToggleBoldButton,
   CommandButtonGroup, DecreaseFontSizeButton, IncreaseFontSizeButton, HeadingLevelButtonGroup, UndoButton, RedoButton,
-  TextAlignmentButtonGroup,
-  ListButtonGroup,useSetState
+  ListButtonGroup,
 } from '@remirror/react';
 
-// The first line imports the CSS styles for the `remirror` library.
-// The next few lines import various hooks and components from the `react` and `remirror` libraries.
-// The following lines import various extensions from the `remirror/extensions` module.
-// The remaining lines import various components and hooks from the `@remirror/react` module.
-
-
+// Import custom components and hooks
 import FileContext from "./providers/FileExporerContext";
-
 import { ToggleListItemExtension } from "./remirrorCustomExtensions/ToggleListItemExtension.jsx"
-import { HighlightButtons } from './remirrorComponents/HighlightButtons';
-import { WysiwygEditor } from '@remirror/react-editors/wysiwyg';
-
-
 import { FontSizeButtons } from './remirrorComponents/FontSizeButtons';
-import { LineHeightButtonDropdown } from './remirrorComponents/LineHeightButtonDropdown';
-// These lines import the `FileContext` and `useContext` hooks from the `react` library, as well as a custom extension called `ToggleListItemExtension`.
+
+// Import axios for making HTTP requests and lodash for debounce functionality
 import axios from 'axios';
 import _ from 'lodash';
 
-
+// Define the set of extensions to be used in the editor
 const extensions = () => [
   new BoldExtension(),
   new ItalicExtension(),
@@ -50,10 +48,8 @@ const extensions = () => [
   new NodeFormattingExtension()
 ];
 
-
-
-
-const hooks =({setSaving,state})=> [
+// Define a custom hook for handling saving content
+const hooks = ({ setSaving, state }) => [
   () => {
     const { getHTML } = useHelpers();
     const { currentFile, fileItems } = useContext(FileContext);
@@ -71,14 +67,14 @@ const hooks =({setSaving,state})=> [
         console.log('File saved successfully');
       } catch (error) {
         console.error('Error saving file:', error.message);
-      } finally{
+      } finally {
         setTimeout(() => {
           setSaving('idle');
         }, 3000); // Reset the saving status to 'idle' after 2 seconds
       }
     }, [getHTML, currentFile, fileItems.children]);
 
-    // adds a 100ms delay
+    // Add a 100ms debounce delay to the saveContent function
     const debouncedSaveContent = useCallback(_.debounce(saveContent, 100), [saveContent]);
     useEffect(() => {
       debouncedSaveContent();
@@ -86,11 +82,13 @@ const hooks =({setSaving,state})=> [
     const handleSaveShortcut = useCallback(
       async () => {
         await saveContent();
-        return true; // Prevents any further key handlers from being run.
+        return true; // Prevents any further key handlers from being
+
       },
       [debouncedSaveContent],
     );
 
+    // Use the useKeymap hook to bind the handleSaveShortcut function to the 'Mod-s' key combination
     useKeymap('Mod-s', handleSaveShortcut);
 
     // Save content whenever the editor state changes
@@ -100,15 +98,13 @@ const hooks =({setSaving,state})=> [
   },
 ];
 
-
-
-// This defines an array of hooks that will be used in the editor. The only hook defined here is a custom hook that listens for the `Ctrl/CMD+s` keyboard shortcut and logs the editor's content to the console.
+// Define the SaveButton component
 function SaveButton() {
   const { getHTML } = useHelpers();
   const { currentFile, fileItems } = useContext(FileContext);
 
-  const handleClick = useCallback(async () =>{
-    
+  const handleClick = useCallback(async () => {
+
     const fileItem = fileItems.children.find(item => item.fileIndex === currentFile);
     const fileId = fileItem?.fileId;
    // URL below with Spring Boot API endpoint
@@ -134,10 +130,10 @@ function SaveButton() {
   );
 }
 
+// Define the getEditorObject function to parse JSON strings and return objects with a type and content property
 export const getEditorObject = (text) => {
   try {
     const parsedText = JSON.parse(text);
-
     // Check if the parsed object has 'type' and 'content' properties
     if (parsedText.hasOwnProperty('type') && parsedText.hasOwnProperty('content')) {
       return {
@@ -152,67 +148,46 @@ export const getEditorObject = (text) => {
   return text;
 };
 
-
-
-
-// This defines a function called `getEditorObject` that takes a JSON string as input, parses it, and returns an object with a `type` and `content` property.
-
-var currFile
+var currFile;
 
 export function getCurrFile() {
-
-
-  return currFile
+  return currFile;
 }
 
+// Define the main Editor component
 export const Editor = () => {
-  const { setSelectedFile } = useContext(FileContext);
-
-  const { editorContent, currentFile } = useContext(FileContext)
-
-  const [file, setFile] = useState(currentFile)
-
+  const { setSelectedFile,editorContent, currentFile } = useContext(FileContext);
+  const [file, setFile] = useState(currentFile);
   const [saving, setSaving] = useState(false);
 
-  const { manager, state, setState,onChange  } = useRemirror({
+  const { manager, state, setState, onChange } = useRemirror({
     extensions,
     content: editorContent,
     stringHandler: 'html',
-
   });
-
-  
-
 
   useEffect(() => {
     if (file !== currentFile) {
       manager.view.updateState(manager.createState({ content: editorContent }));
-      setFile(currentFile)
+      setFile(currentFile);
       setSelectedFile(currentFile);
-      currFile = currentFile
+      currFile = currentFile;
     }
+  }, [currentFile, file]);
 
-  }, [currentFile, file])
-
-  // This is a useEffect hook that listens for changes to the `currentFile` state and updates the editor's content accordingly.
+  // Render the main editor component, wrapped in a ThemeProvider and a Remirror component
   return (
     <>
       <ThemeProvider>
-      
-
         <Remirror
           manager={manager}
           state={state}
-          hooks={hooks({setSaving,state})}
+          hooks={hooks({ setSaving, state })}
           onChange={onChange}
-        >      
-        
-
+        >
           <Toolbar>
-
             <UndoButton />
             <RedoButton />
-            
             <CommandButtonGroup>
               <DecreaseFontSizeButton />
               <FontSizeButtons />
@@ -224,18 +199,15 @@ export const Editor = () => {
             <ListButtonGroup />
             <SaveButton />
             {saving !== 'idle' && (
-            <div className="saving-label">
+              <div className="saving-label">
               {saving === 'saving' ? 'Saving...' : 'Saved'}
-            </div>)}          
+            </div>)} 
           </Toolbar>
-          
           <EditorComponent />
         </Remirror>
       </ThemeProvider>
-
     </>
   );
-
 };
+
 export default Editor;
-// This returns the main editor component, which is wrapped in a `ThemeProvider` and a `Remirror` component. The `Toolbar` component contains various buttons and dropdowns for formatting text, and the `EditorComponent` renders the actual editor.
